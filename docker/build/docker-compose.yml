@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  awscli:
+    container_name: awscli
+    build:
+      context: ../..
+      dockerfile: docker/build/Dockerfile
+    volumes:
+      - .:/artifacts
+    env_file:
+      - local.env

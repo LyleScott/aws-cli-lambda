@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A AWS CLI runner
+
+Parameters:
+
+  EnvName:
+    Description: 'The environment name used in named conventions'
+    Type: String
+    MinLength: 1
+    MaxLength: 16
+    AllowedPattern: '[0-9a-z-]*'
+    ConstraintDescription: alpha-numeric string with dashes 1-16 characters in length
+
+  AwsAccessKey:
+    Description: 'The AWS Access Key used to make aws cli calls'
+    Type: String
+
+  AwsSecretAccessKey:
+    Description: 'The AWS Access Key used to make aws cli calls'
+    Type: String
+
+  AwsDefaultRegion:
+    Description: 'The AWS Region used to make aws cli calls'
+    Type: String
+
+  LogLevel:
+    Description: 'The Log Level of the Lambda'
+    Type: String
+    AllowedValues:
+      - 'DEBUG'
+      - 'INFO'
+      - 'WARNING'
+      - 'ERROR'
+    Default: 'INFO'
+
+Resources:
+
+  AwsCli:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      CodeUri: ../src
+      Description: AWS CLI worker
+      Environment:
+        Variables:
+          LOGLEVEL: !Ref LogLevel
+          ACCESS_KEY_ID: !Ref AwsAccessKey
+          DEFAULT_REGION: !Ref AwsDefaultRegion
+          SECRET_ACCESS_KEY: !Ref AwsSecretAccessKey
+      FunctionName: !Sub '${EnvName}-aws-cli'
+      Handler: index.lambda_handler
+      MemorySize: 128
+      Policies:
+        - 'AWSLambdaVPCAccessExecutionRole'
+      Runtime: python3.7
+      Timeout: 90
