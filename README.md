@@ -4,16 +4,20 @@ This is a full working example of executing the AWS CLI script in a Lambda.
 
 > Yup, there's boto and a AWS SDK in most languages, but I needed the AWS CLI specifically.
 
-## Build/Deploy
-
-The build and deploy steps are done in Docker so files are compiled with an environment like where
-it will be deployed to. Assuming you've configured your `local.env`, just use `docker-compose` to
-kick off a build _and_ a deploy to AWS (SAM app).
+## TLDR
 
 The meat of "how to do this" is mostly:
 
 * [docker/build/Dockerfile#L7](docker/build/Dockerfile#L7)
 * [src/index.py](src/index.py)
+
+The rest is boiler plate to get it to "run" via command line args from an `aws lambda invoke`.
+
+## Build/Deploy
+
+The build and deploy steps are done in Docker so files are compiled with an environment like where
+it will be deployed to. Assuming you've configured your `local.env`, just use `docker-compose` to
+kick off a build _and_ a deploy to AWS (SAM app).
 
 ### Configure `docker/build/local.env`
 
