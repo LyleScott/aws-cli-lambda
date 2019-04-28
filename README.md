@@ -10,6 +10,11 @@ The build and deploy steps are done in Docker so files are compiled with an envi
 it will be deployed to. Assuming you've configured your `local.env`, just use `docker-compose` to
 kick off a build _and_ a deploy to AWS (SAM app).
 
+The meat of "how to do this" is mostly:
+
+* [/docker/build/Dockerfile#L7](/docker/build/Dockerfile#L7)
+* [src/index.py](src/index.py)
+
 ### Configure `docker/build/local.env`
 
 Edit `docker/build/local.env` to taste using
