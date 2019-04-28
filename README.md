@@ -14,10 +14,6 @@ it will be deployed to.
 
 ```shell
 cd docker/build
-
-# !!! docker/build/local.env should exist
-# !!! use docker/build/local.dist.env as a template
-
 docker-compose up --build
 ```
 
