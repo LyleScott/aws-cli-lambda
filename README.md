@@ -7,10 +7,26 @@ This is a full working example of executing the AWS CLI script in a Lambda.
 ## Build/Deploy
 
 The build and deploy steps are done in Docker so files are compiled with an environment like where
-it will be deployed to.
+it will be deployed to. Assuming you've configured your `local.env`, just use `docker-compose` to
+kick off a build _and_ a deploy to AWS (SAM app).
 
-> Edit `docker/build/local.env` to taste using
-  [docker/build/local.dist.env](docker/build/local.dist.env) as a template.
+### Configure `docker/build/local.env`
+
+Edit `docker/build/local.env` to taste using
+[docker/build/local.dist.env](docker/build/local.dist.env) as a template.
+
+```
+AWS_ACCESS_KEY_ID=ABC123
+AWS_DEFAULT_REGION=us-east-1
+AWS_SECRET_ACCESS_KEY=000111222333444555666778899aaabbcccddee
+
+ENV_NAME=dev
+APP_NAME=awscli
+
+S3_BUCKET=my-scratch-foo
+```
+
+### Kick of Build/Deploy
 
 ```shell
 cd docker/build
