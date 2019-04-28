@@ -9,8 +9,14 @@ This is a full working example of executing the AWS CLI script in a Lambda.
 The build and deploy steps are done in Docker so files are compiled with an environment like where
 it will be deployed to.
 
+> Edit `docker/build/local.env` to taste using
+  [docker/build/local.dist.env](docker/build/local.dist.env) as a template.
+
 ```shell
 cd docker/build
+
+# 
+
 docker-compose up --build
 ```
 
