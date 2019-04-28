@@ -19,7 +19,8 @@ docker-compose up --build
 
 ## Invoke Lambda
 
-To test, invoke the Lambda and check Cloud Watch logs.
+To test, invoke the Lambda and check Cloud Watch logs if you did not receive output resembling
+the expected output for `s3 ls` output.
 
 ```shell
 aws lambda invoke \
