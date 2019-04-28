@@ -19,9 +19,8 @@ docker-compose up --build
 To test, invoke the Lambda and check Cloud Watch logs.
 
 ```shell
-aws \
-    lambda invoke \
-        --function-name dev-aws-cli \
-        --payload '{"cmd": "s3 ls"}' \
-        /dev/stdout
+aws lambda invoke \
+    --function-name dev-aws-cli \
+    --payload '{"cmd": "s3 ls"}' \
+    /dev/stdout
 ```
