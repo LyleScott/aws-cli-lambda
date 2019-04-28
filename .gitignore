@@ -1,0 +1,4 @@
+.idea
+infra/formation.compiled.yml
+*.swp
+docker/build/local.env
