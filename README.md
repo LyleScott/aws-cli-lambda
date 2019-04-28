@@ -12,7 +12,7 @@ kick off a build _and_ a deploy to AWS (SAM app).
 
 The meat of "how to do this" is mostly:
 
-* [/docker/build/Dockerfile#L7](/docker/build/Dockerfile#L7)
+* [docker/build/Dockerfile#L7](docker/build/Dockerfile#L7)
 * [src/index.py](src/index.py)
 
 ### Configure `docker/build/local.env`
