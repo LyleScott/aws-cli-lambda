@@ -23,6 +23,8 @@ AWS_SECRET_ACCESS_KEY=000111222333444555666778899aaabbcccddee
 ENV_NAME=dev
 APP_NAME=awscli
 
+# Create with `aws s3 mb <bucketname>` if you don't have a S3 bucket handy.
+# This is used to push the zip'ed Lambda code to S3 so a Lambda can be deployed.
 S3_BUCKET=my-scratch-foo
 ```
 
